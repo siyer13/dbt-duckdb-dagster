@@ -1,0 +1,14 @@
+coffee_house_dbt:
+  outputs:
+    dev:
+      type: duckdb
+      path: ./coffee-house-db.dev
+      schema: "{{ var('schema', 'default') }}"  # This makes the schema dynamic
+      threads: 1
+
+    prod:
+      type: duckdb
+      path: ./coffee-house-db.prod
+      threads: 4
+
+  target: dev
